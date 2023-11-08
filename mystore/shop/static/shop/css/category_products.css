@@ -1,0 +1,107 @@
+
+.card-text {
+    font-size: 14px!important;
+    line-height: 20px!important;
+    color:rgb(15, 17, 17);
+    margin-bottom:3px;
+  }
+
+
+  .card-link{
+          text-decoration: none;
+         display:flex;
+    font-size: 14px;
+    line-height: 20px;
+
+          }
+
+
+
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding:10px;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+margin-left:0px;
+  -ms-flex: 20%; /* IE10 */
+  flex: 20%;
+
+  padding: 20px;
+}
+
+/* Main column */
+.main {
+ margin-left:0px;
+  -ms-flex: 80%; /* IE10 */
+  flex: 80%;
+
+  padding: 0px;
+
+}
+
+
+
+.sub-title a{
+  color: inherit;
+    font-size: 14px;
+     color:rgb(17, 17, 17);
+   padding: 0.5rem 1rem;
+text-decoration:none;
+
+        }
+
+
+        .side .nav-link{
+        color: inherit;
+    font-size: 15px;
+     color:rgb(18, 17, 17);
+   padding: 0.5rem 0.5rem;
+        }
+
+        .mt-7{
+        margin-top:70px;
+        margin-bottom:30px;
+        }
+
+        .card{
+
+border-radius:0;
+
+        }
+                    .card-img-top{
+border-radius:0;
+
+        }
+        .col-md-1{
+
+        width: 16rem;
+
+        }
+
+
+
+
+ @media (max-width: 767px) {
+
+
+  .side{
+  display:none;
+  }
+        .col-md-1{
+
+        width: 50%;
+         margin-bottom:13px;
+
+        }
+        .pl-6{
+        padding-left:11px;
+        }
+
+}
