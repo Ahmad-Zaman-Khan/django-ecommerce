@@ -9,18 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% load static %}
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 <link rel="stylesheet" type="text/css" href="{% static 'shop/css/shop_home.css' %}">
 
   </head>
   <body>
 
 
-
-
 <section class="shop-section mt-5">
-
+<h4 class="mx-4 my-3 ">Categories</h4>
       <div class="shop-images">
 
 {% for category in categories|slice:":4" %}
@@ -36,9 +33,10 @@
     </section>
 
 
+
 {% for subcategory, products in allProds %}
 {% if products %}
-<div id="carouselExample{{forloop.counter}}" class="carousel slide large" data-interval="false">
+<div id="carouselExample{{forloop.counter}}" class="carousel slide large">
 
   <div class="carousel-inner">
 <div class="title-block">
@@ -48,7 +46,7 @@
 <div class="carousel-item active">
     {% for product in products %}
 
-      <div class="card card-pro" style="width: 15rem;border: 1px solid #e2e2e2; ">
+      <div class="card card-pro" style="border: 1px solid #e2e2e2; ">
         <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}" style="height: 67%;  ">
         <div class="card-body">
           <p class="card-text">Some quick example text that...</p>
@@ -66,11 +64,11 @@
 
   </div>
 
-  <a class="carousel-control-prev" role="button"  href="#carouselExample{{forloop.counter}}" data-slide="prev">
+  <a class="carousel-control-prev" type="button"  data-bs-target="#carouselExample{{forloop.counter}}" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </a>
-  <a class="carousel-control-next" role="button" href="#carouselExample{{forloop.counter}}" data-slide="next">
+  <a class="carousel-control-next" type="button" data-bs-target="#carouselExample{{forloop.counter}}" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </a>
@@ -86,7 +84,7 @@
 
 {% for subcategory, products in allProds %}
 {% if products %}
-<div id="carouselSmall{{forloop.counter}}" class="carousel slide small" data-interval="false">
+<div id="carouselSmall{{forloop.counter}}" class="carousel slide small">
 
   <div class="carousel-inner">
 <div class="title-block">
@@ -96,7 +94,7 @@
 <div class="carousel-item active">
     {% for product in products %}
 
-      <div class="card card-pro" style="width: 180px; height: auto; border: 1px solid #e2e2e2; ">
+      <div class="card card-pro" style="  ">
         <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}" style="height: 62%; ">
         <div class="card-body">
           <p class="card-text">Some quick example text that...</p>
@@ -114,11 +112,11 @@
 
 </div>
 
-  <a class="carousel-control-prev" role="button"  href="#carouselSmall{{forloop.counter}}" data-slide="prev">
+  <a class="carousel-control-prev" type="button"  data-bs-target="#carouselSmall{{forloop.counter}}" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </a>
-  <a class="carousel-control-next" role="button" href="#carouselSmall{{forloop.counter}}" data-slide="next">
+  <a class="carousel-control-next" type="button" data-bs-target="#carouselSmall{{forloop.counter}}" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </a>
@@ -141,15 +139,6 @@
 
 
 
-<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>-->
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>-->
-<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
 
   </body>
 </html>

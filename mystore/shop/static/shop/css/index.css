@@ -41,7 +41,7 @@ border: none;
         .header-links a {
             color: #fff;
             text-decoration: none;
-            margin-left:20px;
+            margin-left:10px;
 
 
     font-family: Arial, sans-serif;
@@ -232,10 +232,7 @@ footer{
             padding:10px;
 
         }
-        .header {
 
-        overflow: hidden; /* Allow the dropdown to be visible on smaller screens */
-    }
 
 
 
@@ -261,19 +258,24 @@ footer{
             display:none;
         }
 
-
+     .header-links li {
+            margin-left: 10px;
+        }
         .header-links a {
         font-size: 13px; /* Adjust the font size for smaller screens */
+
     }
 
     .menu-icon {
-            font-size: 24px;
-            margin-right: 9px;
-            margin-left: -7px;
+            font-size: 23px;
+         margin:0;
+             margin-left:-7px;
             cursor:pointer;
         }
         .logo{
-        font-size: 22px;
+
+        font-size: 20px;
+
         }
         .small{
         display:flex;

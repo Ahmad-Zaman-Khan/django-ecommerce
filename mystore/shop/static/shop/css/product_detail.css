@@ -1,0 +1,76 @@
+body{
+background-color:  white;
+
+}
+    .first-container {
+        margin-bottom:30px;
+
+         padding:50px;
+
+            background-color:white;
+
+        }
+          .carousel-control-prev-icon,
+         .carousel-control-next-icon{
+          padding: 20px 0px 20px 0px;
+          background-color: lightgrey;
+
+
+          }
+          .carousel-control-prev,.carousel-control-next{
+          width: 5%;
+
+
+          }
+        .price-tag{
+
+            font-size: 1.5rem;
+    line-height: 4rem;
+    }
+      .product-title {
+    color: #212121;
+    font-size: 22px;
+    font-weight: 400;
+    word-break: break-word;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+      .carousel-inner .carousel-item.active,
+        .carousel-inner .carousel-item-next,
+        .carousel-inner .carousel-item-prev {
+
+        }
+
+        .carousel-inner .carousel-item-right.active,
+        .carousel-inner .carousel-item-next {
+            transform: translateX(100.333%);
+        }
+
+        .carousel-inner .carousel-item-left.active,
+        .carousel-inner .carousel-item-prev {
+            transform: translateX(-100.333%);
+        }
+
+        .carousel-inner .carousel-item-right,
+        .carousel-inner .carousel-item-left {
+            transform: translateX(0);
+        }
+      .form-group a{
+      background-color: #006AA9;
+      color:white;
+      margin-right:10px;
+      }
+        .card-link{
+          text-decoration: none;
+         display:flex;
+    font-size: 14px;
+
+
+          }
+      .price-tag {
+  font-family: Arial, sans-serif; /* Choose an appropriate font family */
+  font-size: 16px; /* Adjust the font size as needed */
+  font-weight: 400; /* Make it bold */
+
+}

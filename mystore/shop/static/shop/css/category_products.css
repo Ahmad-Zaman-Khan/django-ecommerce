@@ -81,18 +81,24 @@ border-radius:0;
         }
         .col-md-1{
 
-        width: 16rem;
+        width: 17rem;
 
         }
 
 
-
+.card-img-top{
+        height:200px;
+        }
 
  @media (max-width: 767px) {
 
 
   .side{
   display:none;
+  }
+  .card{
+  width:10rem;
+
   }
         .col-md-1{
 
@@ -102,6 +108,9 @@ border-radius:0;
         }
         .pl-6{
         padding-left:11px;
+        }
+        .card-img-top{
+        height:120px;
         }
 
 }

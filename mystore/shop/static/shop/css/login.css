@@ -1,0 +1,104 @@
+   body {
+    background-color: #eff0f5;
+
+    font-family: Arial,sans-serif;
+}
+
+
+ .login {
+    background-color: white;
+    border-radius: 5px;
+    padding: 50px;
+    margin:20px;
+    padding-top: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Adjust the maximum width as needed */
+      /* Center horizontally */
+
+margin: auto;
+margin-top:30px;
+margin-bottom:50px;
+    /* Center vertically */
+
+}
+
+
+
+.small-input {
+    width: 90%; /* Adjust the width as desired */
+    margin: 0 auto;
+
+
+
+}
+.btn-block button{
+ width: 70%;
+        font-size: 13px;
+
+    margin-top:8px;
+   font-size: 13px;
+    line-height: 20px;
+    box-sizing: border-box;
+
+display: flex;
+    flex-direction: column;
+    align-items: center;
+margin: 0 auto;
+margin-top: 20px;
+
+
+ background-color:#4a89e5;
+        }
+
+
+ .small-input button {
+    width: 80%;
+font-size: 13px;
+    line-height: 22px;
+    box-sizing: border-box;
+
+display: flex;
+    flex-direction: column;
+    align-items: center;
+margin: 0 auto;
+margin-top: 60px;
+margin-bottom: 20px;
+
+
+ background-color:#4a89e5;
+}
+        label {
+        font-size: 13px;
+    line-height: 19px;
+    display: block;
+    padding-left: 2px;
+    padding-bottom: 2px;
+    font-weight: 700;
+}
+
+
+        .divider {
+    border: none;
+    height: 1px;
+    background-color: #ccc; /* Adjust the color as needed */
+}
+
+/* Style the lines on the left and right of the text */
+.divider-line {
+    display: inline-block;
+    width: 150px; /* Set the width to 100% to match the parent's width */
+    height: 1px;
+
+    background-color: #ccc; /* Adjust the color as needed */
+     /* Adjust the margin as needed */
+}
+
+/* Style the text in the middle of the divider */
+.divider-text {
+
+    color: #9FA5A5; /* Adjust the color as needed */
+
+    font-size: .75rem;
+    line-height: 1rem;
+
+}

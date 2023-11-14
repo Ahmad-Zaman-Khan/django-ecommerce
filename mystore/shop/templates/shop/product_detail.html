@@ -5,89 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     {% load static %}
     <title>{{ product.title }} - Product Detail</title>
-    <!-- Include Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
-  <style>
-body{
-background-color:  white;
-
-}
-    .first-container {
-        margin-bottom:30px;
-
-         padding:50px;
-
-            background-color:white;
-
-        }
-          .carousel-control-prev-icon,
-         .carousel-control-next-icon{
-          padding: 20px 0px 20px 0px;
-          background-color: lightgrey;
-
-
-          }
-          .carousel-control-prev,.carousel-control-next{
-          width: 5%;
-
-
-          }
-        .price-tag{
-
-            font-size: 1.5rem;
-    line-height: 4rem;
-    }
-      .product-title {
-    color: #212121;
-    font-size: 22px;
-    font-weight: 400;
-    word-break: break-word;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-      .carousel-inner .carousel-item.active,
-        .carousel-inner .carousel-item-next,
-        .carousel-inner .carousel-item-prev {
-
-        }
-
-        .carousel-inner .carousel-item-right.active,
-        .carousel-inner .carousel-item-next {
-            transform: translateX(100.333%);
-        }
-
-        .carousel-inner .carousel-item-left.active,
-        .carousel-inner .carousel-item-prev {
-            transform: translateX(-100.333%);
-        }
-
-        .carousel-inner .carousel-item-right,
-        .carousel-inner .carousel-item-left {
-            transform: translateX(0);
-        }
-      .form-group a{
-      background-color: #006AA9;
-      color:white;
-      margin-right:10px;
-      }
-        .card-link{
-          text-decoration: none;
-         display:flex;
-    font-size: 14px;
-<!--    line-height: 5px;-->
-
-          }
-      .price-tag {
-  font-family: Arial, sans-serif; /* Choose an appropriate font family */
-  font-size: 16px; /* Adjust the font size as needed */
-  font-weight: 400; /* Make it bold */
-
-}
-</style>
+<link rel="stylesheet" type="text/css" href="{% static 'shop/css/product_detail.css' %}">
 </head>
 <body>
 <div class="container-fluid pt-5 mt-4 first-container">
@@ -162,77 +82,8 @@ background-color:  white;
 </div>
 
 
-<!--  <div class="container mt-5">-->
-<!--    <div class="row">-->
-<!--      <div class="col-md-6">-->
-<!--        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">-->
-<!--      </div>-->
-<!--      <div class="col-md-6">-->
-<!--        <h2>{{ product.name }}</h2>-->
-<!--        <p>{{ product.description }}</p>-->
-<!--        <p><strong>Price: ${{ product.price }}</strong></p>-->
-<!--        <p><strong>Quantity Available: {{ product.quantity }}</strong></p>-->
-
-<!--        &lt;!&ndash; Buy Now button &ndash;&gt;-->
-<!--        <a href="{% url 'add-to-cart' product.id %}" class="btn btn-primary ">Add to Cart</a>-->
-
-
-<!--        &lt;!&ndash; Add to Cart button &ndash;&gt;-->
-<!--        <form action="{% url 'order_confirmation' product.id %}" method="post" class="mt-3">-->
-<!--          {% csrf_token %}-->
-<!--          <div class="form-group">-->
-<!--            <label for="quantity">Quantity:</label>-->
-<!--            <input type="number" id="quantity1" name="quantity" class="form-control" min="1" value="1">-->
-<!--          </div>-->
-<!--          <button type="submit" class="btn btn-success">Buy Now</button>-->
-<!--        </form>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-
-
 
 {% endblock %}
-<!--<script>-->
-<!--    var checkoutForm = document.getElementById('checkout-form');-->
-<!--    var buttons = checkoutForm.querySelectorAll('button');-->
-<!--    var quantityInput = checkoutForm.querySelector('#quantity');-->
 
-<!--    buttons.forEach(function(button) {-->
-<!--        button.addEventListener('click', function(event) {-->
-<!--            event.preventDefault();-->
-<!--            var action = this.getAttribute('data-action');-->
-<!--            // Append the quantity and product.id to the URL-->
-<!--            checkoutForm.action = '/add-to-cart/{{ product.id }}' ;-->
-
-<!--            checkoutForm.action = action;-->
-<!--            checkoutForm.submit();-->
-<!--        });-->
-<!--    });-->
-<!--</script>-->
-<!--  <script>-->
-<!--   action += '?quantity=' + quantityInput.value + '&product_id=' + {{ product.id }};-->
-<!--    var checkoutForm = document.getElementById('checkout-form');-->
-<!--    var addCartButton = checkoutForm.querySelector('[data-action="/add-to-cart-url"]');-->
-<!--    var buyNowButton = checkoutForm.querySelector('[data-action="/buy-now-url"]');-->
-<!--    var quantityInput = checkoutForm.querySelector('#quantity');-->
-
-<!--    addCartButton.addEventListener('click', function(event) {-->
-<!--        event.preventDefault();-->
-<!--        checkoutForm.action = '/add-to-cart-url';-->
-<!--        checkoutForm.submit();-->
-<!--    });-->
-
-<!--    buyNowButton.addEventListener('click', function(event) {-->
-<!--        event.preventDefault();-->
-<!--        checkoutForm.action = '/buy-now-url';-->
-<!--        checkoutForm.submit();-->
-<!--    });-->
-<!--</script>-->
-    <!-- Include Bootstrap JS (optional) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -17,7 +17,8 @@ color:rgb(17, 17, 17);
           }
 
 .shop-link {
-  background-color: #fff;
+
+  background-color: white;
   padding: 20px;
   display: flex;
   align-items: center; /* Align items to the center */
@@ -86,7 +87,12 @@ width:2%;
 padding:15px;
 
     }
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex !important;
 
+}
 
 
 .price-tag {
@@ -136,26 +142,9 @@ width: auto;
 border-radius:0;
 
         }
-           .carousel-inner .carousel-item.active,
-        .carousel-inner .carousel-item-next,
-        .carousel-inner .carousel-item-prev {
-            display: flex;
-        }
 
-        .carousel-inner .carousel-item-right.active,
-        .carousel-inner .carousel-item-next {
-            transform: translateX(100.333%);
-        }
 
-        .carousel-inner .carousel-item-left.active,
-        .carousel-inner .carousel-item-prev {
-            transform: translateX(-100.333%);
-        }
 
-        .carousel-inner .carousel-item-right,
-        .carousel-inner .carousel-item-left {
-            transform: translateX(0);
-        }
 .small{
   display:none;
   }
@@ -189,14 +178,19 @@ border-radius:0;
   .small{
   display:flex;
   }
+  .carousel{
+ margin:10px;
+
+    }
   .carousel-inner {
   padding-left:0px;
-    padding-right:8px;
+    padding-right:0px;
   }
         .card[class$="card-pro"]{
 width:15rem;
-height:250px;
-
+height: auto;
+ border: 1px solid #e2e2e2;
+margin: 5px;
 }
 
 

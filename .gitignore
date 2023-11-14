@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database
+*.sqlite3
+db.sqlite3
+
+
+# Virtual environment
+venv/
+
+
+# Secret key file
+secret_key
+
+# IDE-specific files
+.idea/
+
+
+
+# Ignore pipenv virtual environment
+Pipfile
+Pipfile.lock
+
+# Ignore coverage reports
+htmlcov/
+
+# Ignore test database
+test.db
