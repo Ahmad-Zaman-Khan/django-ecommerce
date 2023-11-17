@@ -1,6 +1,6 @@
 An e-commerce website built with django.
 <br>
-Here is the link to the live demo: https://ahmad81.pythonanywhere.com
+Checkout the live demo: https://ahmad81.pythonanywhere.com
 
 ## Features
 
@@ -26,7 +26,7 @@ Here is the link to the live demo: https://ahmad81.pythonanywhere.com
 
 7. Create an admin user:
 
-  `python manage.py createsuperuser`
+   `python manage.py createsuperuser`
 
 8. Run The Server:
 
