@@ -17,15 +17,21 @@ Here is the link to the live demo: https://ahmad81.pythonanywhere.com
 3. Create a new environment - `mkvirtualenv ecommerce`
 4. `cd` to cloned repo
 5. Install the required modules:
+
    `pip install -r requirements.txt`
+
 6. Apply the migrations:
 
    `python manage.py migrate`
 
 7. Create an admin user:
+
   `python manage.py createsuperuser`
+
 8. Run The Server:
+
    `python manage.py runserver`
+
 9. Navigate to http://localhost:8000/admin and enter the credentials from the previous step.
 10. Checkout the homepage http://localhost:8000/
 
