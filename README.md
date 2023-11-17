@@ -19,7 +19,9 @@ Here is the link to the live demo: https://ahmad81.pythonanywhere.com
 5. Install the required modules:
    `pip install -r requirements.txt`
 6. Apply the migrations:
+
    `python manage.py migrate`
+
 7. Create an admin user:
   `python manage.py createsuperuser`
 8. Run The Server:
