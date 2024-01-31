@@ -21,7 +21,7 @@ body {
 }
 
 .btn-block button {
-    width: 70%;
+    width: 45%;
     font-size: 13px;
     margin-top: 8px;
     font-size: 13px;
@@ -33,6 +33,7 @@ body {
     margin: 0 auto;
     margin-top: 20px;
     background-color: #4a89e5;
+    color:white;
 }
 
 .small-input button {
