@@ -6,15 +6,14 @@ from .models import Order
 
 
 class CustomUserCreationForm(UserCreationForm):
-    # email = forms.EmailField(required=True)
+
     last_name = forms.CharField(max_length=30, required=True,
                            widget=forms.TextInput(attrs={'class': 'custom-input', 'placeholder': 'Enter your name'}))
     first_name = forms.CharField(max_length=30, required=True,
                            widget=forms.TextInput(attrs={'class': 'custom-input', 'placeholder': 'Enter your name'}))
     email = forms.EmailField(required=True,
                              widget=forms.TextInput(attrs={'class': 'custom-input', 'placeholder': 'Enter your email'}))
-    # name = forms.CharField(max_length=30, required=True,
-    #                        widget=forms.TextInput(attrs={'class': 'custom-input', 'placeholder': 'Enter your name'}))
+
     password1 = forms.CharField(label="Password", max_length=30, required=True, widget=forms.PasswordInput(
         attrs={'class': 'custom-input', 'placeholder': 'Enter your password'}))
     password2 = forms.CharField(label="Password Confirmation", max_length=30, required=True, widget=forms.PasswordInput(

@@ -9,77 +9,70 @@
     {% load static %}
     <!-- Include Bootstrap CSS -->
 
-<link rel="stylesheet" type="text/css" href="{% static 'shop/css/register.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/css/register.css' %}">
 </head>
 <body>
 
 <div class=" sign-up">
 
-<h4 class="mb-5 ml-3" >Create Account</h4>
-     {{ form.errors}}
+    <h4 class="mb-5 ml-3">Create Account</h4>
+    {{ form.errors}}
     <form method="post" action="{% url 'register' %}">
         {% csrf_token %}
         <div class="mb-4  small-input">
-              {{ form.email.label_tag }}
-                    {{ form.email }}
-<!--            <label for="email" class="form-label">Email</label>-->
-<!--            <input type="email" class="form-control " id="email" placeholder="Enter your email" required>-->
+            {{ form.email.label_tag }}
+            {{ form.email }}
+
         </div>
         <div class="mb-4  small-input">
-              {{ form.first_name.label_tag }}
-                    {{ form.first_name }}
-<!--            <label for="email" class="form-label">Email</label>-->
-<!--            <input type="email" class="form-control " id="email" placeholder="Enter your email" required>-->
+            {{ form.first_name.label_tag }}
+            {{ form.first_name }}
+
         </div>
         <div class="mb-4  small-input">
-              {{ form.last_name.label_tag }}
-                    {{ form.last_name }}
-<!--            <label for="email" class="form-label">Email</label>-->
-<!--            <input type="email" class="form-control " id="email" placeholder="Enter your email" required>-->
+            {{ form.last_name.label_tag }}
+            {{ form.last_name }}
+
         </div>
         <div class="mb-4 small-input">
-             {{ form.name.label_tag }}
-                    {{ form.name }}
-<!--            <label for="password" class="form-label">Password</label>-->
-<!--            <input type="password" class="form-control " id="password" placeholder="Enter your password" required>-->
+            {{ form.name.label_tag }}
+            {{ form.name }}
+
         </div>
-         <div class="mb-4 small-input">
-             {{ form.password1.label_tag }}
-                    {{ form.password1 }}
-<!--            <label for="password" class="form-label">Password</label>-->
-<!--            <input type="password" class="form-control " id="password" placeholder="Enter your password" required>-->
+        <div class="mb-4 small-input">
+            {{ form.password1.label_tag }}
+            {{ form.password1 }}
+
         </div>
-         <div class="mb-4 small-input">
-              {{ form.password2.label_tag }}
-                    {{ form.password2 }}
-<!--            <label for="password" class="form-label">Password</label>-->
-<!--            <input type="password" class="form-control " id="password" placeholder="Enter your password" required>-->
+        <div class="mb-4 small-input">
+            {{ form.password2.label_tag }}
+            {{ form.password2 }}
+
         </div>
-        <div  class="small-input">
-        <button type="submit" class="btn btn-primary  ">Sign Up</button>
-            </div>
+        <div class="small-input">
+            <button type="submit" class="btn btn-primary  ">Sign Up</button>
+        </div>
 
     </form>
 
 
-<!--    <hr class="divider">-->
+    <!--    <hr class="divider">-->
     <div class="text-center">
         <span class="divider-line"></span>
         <span class="divider-text">OR</span>
         <span class="divider-line"></span>
     </div>
-<div class="btn-block">
-    <button>
-       <a  href="{% url 'register' %}">Sign In with Email</a>
-    </button>
-    <button class="btn" >
-        <span  class="fab fa-google"></span><a > Sign up with Google</a>
-    </button>
+    <div class="btn-block">
+        <button>
+            <a href="{% url 'register' %}">Sign In with Email</a>
+        </button>
+        <button class="btn">
+            <span class="fab fa-google"></span><a> Sign up with Google</a>
+        </button>
 
     </div>
 
 </div>
-
 
 
 {% endblock %}

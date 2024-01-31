@@ -1,13 +1,12 @@
 from django.urls import path, include
 
 from . import views
-from .views import ProductDetailView, AddToCartView, CartView, OrderConfirmationView, PlaceOrderView, OrderHistoryView, \
-    subcategory_products
+from .views import (ProductDetailView, AddToCartView, CartView, OrderConfirmationView, PlaceOrderView,
+                    OrderHistoryView)
+
 
 urlpatterns = [
     path("", views.index, name="index"),
-
-    path("t/", views.index3, name="index3"),
     path('subcategory/<str:subcategory_name>/', views.subcategory_products, name='subcategory_products'),
     path('category/<str:category_name>/', views.category_products, name='category_products'),
     path('custom_search/', views.custom_search, name='custom_search'),

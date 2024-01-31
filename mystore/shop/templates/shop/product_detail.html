@@ -14,19 +14,19 @@
     <div class="row" >
         <div class="col-md-4">
             <!-- Product image -->
-            <img src="/media/products/img-1.png" alt="Product Image" class="img-fluid">
+            <img src="{{ product.image.url }}" alt="Product Image" class="  product-image" style="height:350px">
         </div>
         <div class="col-md-6">
             <!-- Product details -->
-            <h2 class="product-title">Rica - Brazilian {{ product.name }}</h2>
+            <h2 class="product-title">Product - {{ product.name }}</h2>
             <p class="text-muted">Category: {{ product.category }}</p>
-          <p>{{ product.description }}Product description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>{{ product.description }}and Product description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 <!--            <p class="text-muted">Availability: In Stock</p>-->
-            <span class="price-tag">Rs: {{ product.price }}</span>
+            <span class="price-tag ">Rs: {{ product.price }}</span>
 
          <form action="{% url 'order_confirmation' product.id %}" method="post">
                 {% csrf_token %}
-                <div class="form-group mb-3">
+                <div class="form-group mb-3 mt-2">
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" name="quantity" class="form-control" min="1" value="1">
                      <a href="{% url 'add-to-cart' product.id %}" class="btn mt-4  rounded-0">Add to Cart</a>
@@ -43,7 +43,7 @@
 
 <div id="related-products-carousel" class="carousel slide pt-4 pb-5 " data-ride="carousel" data-interval="false">
      <div class="text-center">
-            <h3 class="mt-2 mb-5">Related Products</h3>
+            <h3 class="mt-0 mb-5">Related Products</h3>
         </div>
     <div class="carousel-inner ">
         {% for related_product in related_products %}
@@ -53,13 +53,15 @@
             {% endif %}
             <div class="col-md-3  " style="margin-right:-45px;">
                 <div class="card  " style="width: 16rem;">
+                     <a  href="{% url 'product_detail' slug=product.slug %}" >
                     <img src="{{ related_product.image.url }}" class="card-img-top" alt="Related Product Image" style="height: 240px; ">
                     <div class="card-body">
-<!--                        <h5 class="card-title">{{ related_product.name }}</h5>-->
-                        <p class="card-text mb-0">{{ related_product.description }}</p>
-                        <p class="price-tag mb-0">Rs: {{ related_product.price }}</p>
-                         <a class="card-link mt-0" href="{% url 'product_detail' slug=product.slug %}" >See more</a>
+
+                        <p class="card-text ">Some quick example text that...</p>
+                        <p class="price-tag ">Rs: {{ related_product.price }}</p>
+
                     </div>
+                     </a>
                 </div>
             </div>
             {% if forloop.counter|divisibleby:"4" %}

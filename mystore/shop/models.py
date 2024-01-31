@@ -60,16 +60,12 @@ class SubCategory(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=200, null=True)
-    # category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.CharField(max_length=200, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     image = models.ImageField(upload_to='products/', default='products/products2.jpg')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
-    # subcategory = models.CharField(max_length=200,  null=True, blank=True) # Subcategory
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, null=True, blank=True)
     slug = models.SlugField(max_length=100, unique=True, null=True, blank=True)
-
-    # image = models.ImageField(upload_to='products/')
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -102,25 +98,3 @@ class CartItem(models.Model):
 
     def subtotal(self):
         return self.product.price * self.quantity
-# class Cart(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     products = models.ManyToManyField(Product, through='CartItem')
-#
-#
-# class CartItem(models.Model):
-#     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
-#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-#     quantity = models.PositiveIntegerField(default=1)
-#
-#
-# class Order(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     products = models.ManyToManyField(Product, through='OrderItem')
-#     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
-#     created_at = models.DateTimeField(auto_now_add=True)
-#
-#
-# class OrderItem(models.Model):
-#     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-#     quantity = models.PositiveIntegerField()

@@ -23,7 +23,7 @@
 {% for category in categories|slice:":4" %}
           <a href="{% url 'category_products' category.name %}" class="shop-link">
             <img src="{{ category.image.url }}" alt="card">
-            <h5 class=" mt-2 mb-0">{{ category.name }}</h5>
+            <h5 class=" mt-1 mb-0">{{ category.name }}</h5>
         </a>
 
 {% endfor %}
@@ -47,12 +47,16 @@
     {% for product in products %}
 
       <div class="card card-pro" style="border: 1px solid #e2e2e2; ">
-        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}" style="height: 67%;  ">
+<a  href="{% url 'product_detail' slug=product.slug %}" >
+        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}" style="  ">
         <div class="card-body">
           <p class="card-text">Some quick example text that...</p>
-          <span class="price-tag">${{ product.price }}</span>
-         <a class="card-link" href="{% url 'product_detail' slug=product.slug %}" >See more</a>
+
+           <span class="price-tag">${{ product.price }}</span>
+
         </div>
+              </a>
+
       </div>
      {% if forloop.counter|divisibleby:5 %}
     </div>
@@ -81,7 +85,7 @@
 
 
 
-
+<!--This is for small screens-->
 {% for subcategory, products in allProds %}
 {% if products %}
 <div id="carouselSmall{{forloop.counter}}" class="carousel slide small">
@@ -95,12 +99,14 @@
     {% for product in products %}
 
       <div class="card card-pro" style="  ">
+          <a  href="{% url 'product_detail' slug=product.slug %}" >
         <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}" style="height: 62%; ">
         <div class="card-body">
-          <p class="card-text">Some quick example text that...</p>
+          <p class="card-text">Some quick example text..</p>
           <span class="price-tag">${{ product.price }}</span>
-         <a class="card-link" href="{% url 'product_detail' product.id %}" >See more</a>
+
         </div>
+          </a>
       </div>
      {% if forloop.counter|divisibleby:2  %}
     </div>
@@ -131,12 +137,6 @@
 
 
 {% endblock %}
-
-
-
-
-
-
 
 
 

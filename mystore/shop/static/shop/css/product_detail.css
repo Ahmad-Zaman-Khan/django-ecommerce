@@ -1,33 +1,25 @@
-body{
-background-color:  white;
-
+body {
+    background-color: white;
 }
-    .first-container {
-        margin-bottom:30px;
 
-         padding:50px;
+.first-container {
+    margin-bottom: 30px;
+    padding: 50px;
+    background-color: white;
+}
 
-            background-color:white;
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    padding: 20px 0px 20px 0px;
+    background-color: lightgrey;
+}
 
-        }
-          .carousel-control-prev-icon,
-         .carousel-control-next-icon{
-          padding: 20px 0px 20px 0px;
-          background-color: lightgrey;
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
 
-
-          }
-          .carousel-control-prev,.carousel-control-next{
-          width: 5%;
-
-
-          }
-        .price-tag{
-
-            font-size: 1.5rem;
-    line-height: 4rem;
-    }
-      .product-title {
+.product-title {
     color: #212121;
     font-size: 22px;
     font-weight: 400;
@@ -36,41 +28,56 @@ background-color:  white;
     overflow-wrap: break-word;
 }
 
-      .carousel-inner .carousel-item.active,
-        .carousel-inner .carousel-item-next,
-        .carousel-inner .carousel-item-prev {
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+}
 
-        }
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next {
+    transform: translateX(100.333%);
+}
 
-        .carousel-inner .carousel-item-right.active,
-        .carousel-inner .carousel-item-next {
-            transform: translateX(100.333%);
-        }
+.carousel-inner .carousel-item-left.active,
+.carousel-inner .carousel-item-prev {
+    transform: translateX(-100.333%);
+}
 
-        .carousel-inner .carousel-item-left.active,
-        .carousel-inner .carousel-item-prev {
-            transform: translateX(-100.333%);
-        }
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left {
+    transform: translateX(0);
+}
 
-        .carousel-inner .carousel-item-right,
-        .carousel-inner .carousel-item-left {
-            transform: translateX(0);
-        }
-      .form-group a{
-      background-color: #006AA9;
-      color:white;
-      margin-right:10px;
-      }
-        .card-link{
-          text-decoration: none;
-         display:flex;
+.form-group a {
+    background-color: #006AA9;
+    color: white;
+    margin-right: 10px;
+}
+
+.card-link {
+    text-decoration: none;
+    display: flex;
     font-size: 14px;
+}
 
+.card-text {
+    font-size: 14px!important;
+    line-height: 1.5;
+    color: rgb(15, 17, 17);
+    margin-bottom: 3px;
+    font-weight: 500;
+}
 
-          }
-      .price-tag {
-  font-family: Arial, sans-serif; /* Choose an appropriate font family */
-  font-size: 16px; /* Adjust the font size as needed */
-  font-weight: 400; /* Make it bold */
+.card a {
+    color: black;
+}
 
+.card-img-top:hover {
+    opacity: 0.7;
+}
+
+.price-tag {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
 }

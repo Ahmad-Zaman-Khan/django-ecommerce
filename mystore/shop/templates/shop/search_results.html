@@ -6,34 +6,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
+<style>
+    a{
+    color:black;
+    }
+    .card-img-top:hover{
+    opacity:0.7;
+    }
+</style>
 </head>
 <body>
-     {% if results %}
-    <div class="container mt-5 mb-5">
-        <h5 class="mb-5 mt-4">Search Results for '{{ query }}'</h5>
-        <div class="row">
-            {% for product in results %}
-                <div class="col-md-3">
-                    <div class="card mb-3 " style="width: 15rem; text-wrap: wrap; white-space-collapse: collapse;">
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top"style="height: 200px; ">
-                        <div class="card-body">
-                            <p class="card-text mb-1">Some quick example text that is...</p>
-                            <p class="card-text"> ${{ product.price }}</p>
-                           <a class="link mt-0" href="{% url 'product_detail' slug=product.slug %}" >See more</a>
-                        </div>
-                    </div>
-                </div>
+{% if results %}
+<div class="container mt-5 mb-5">
+    <h5 class="mb-5 mt-4">Search Results for '{{ query }}'</h5>
+    <div class="row">
+        {% for product in results %}
+        <div class="col-md-3">
+            <div class="card mb-3 " style="width: 15rem; text-wrap: wrap; white-space-collapse: collapse;">
+                <a href="{% url 'product_detail' slug=product.slug %}" >
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top"
+                     style="height: 200px; ">
+                <div class="card-body">
+                    <p class="card-text mb-1">Some quick example text that is bold...</p>
+                    <p class="card-text"> ${{ product.price }}</p>
 
-            {% endfor %}
+                </div>
+                </a>
+            </div>
         </div>
-    </div>
-    {% else %}
-                <div class="col p-5">
-                    <p>No results found for '{{query}}'</p>
-                </div>
 
-    {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<div class="col p-5">
+    <p>No results found for '{{query}}'</p>
+</div>
+
+{% endif %}
 {% endblock %}
 </body>
 </html>

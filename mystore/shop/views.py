@@ -1,8 +1,8 @@
 from django.contrib import messages
 
 from django.db.models import Q
-from django.http import HttpResponse, Http404, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.http import  Http404, HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
@@ -10,29 +10,24 @@ from django.urls import reverse
 from django.utils import timezone
 
 from django.views import View
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView
 
 from .forms import CustomUserCreationForm
 from .models import Product, CartItem, Order, Category, SubCategory
 
 
 def index(request):
-    categories = Category.objects.all()
+
     subcategories = SubCategory.objects.all()[:3]
 
     allProds = []
-    # for category in categories:
-    #     subcategories = category.subcategories.all()
     for subcategory in subcategories:
         products = Product.objects.filter(subcategory=subcategory)
         if products:
             allProds.append((subcategory, products))
 
-    context = {
+    context = {'allProds': allProds,}
 
-        'allProds': allProds,
-
-    }
     return render(request, 'shop/shop_home.html', context)
 
 
@@ -73,28 +68,6 @@ def subcategory_products(request, subcategory_name):
     return render(request, 'shop/category_products.html', context)
 
 
-def index3(request):
-    categories = Category.objects.all()
-    subcategories = SubCategory.objects.all()[:3]
-
-    allProds = []
-    # for category in categories:
-    #     subcategories = category.subcategories.all()
-    for subcategory in subcategories:
-        products = Product.objects.filter(subcategory=subcategory)
-        if products:
-            allProds.append((subcategory, products))
-
-    fruits = ['jkchk', 'kndjxnc', 'jkchk', 'kndjxnc', 'jkchk', 'kndjxnc', ]
-    context = {
-        'fruits': fruits,
-        'allProds': allProds,
-
-    }
-
-    return render(request, 'shop/mymaster.html', context)
-
-
 class AddToCartView(View):
     def get(self, request, product_id):
         product = get_object_or_404(Product, id=product_id)
@@ -107,7 +80,7 @@ class AddToCartView(View):
 
 
 class CartView(View):
-    # template_name = 'shop/product_detail.html'
+
     def get(self, request):
         if request.user.is_authenticated:
             cart_items = CartItem.objects.filter(user=request.user)
