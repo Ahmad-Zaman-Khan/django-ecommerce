@@ -1,5 +1,7 @@
 An e-commerce website built with django.
 <br>
+[Check out the Live Demo](ahmad81.pythonanywhere.com)
+
 
 
 ## Features
