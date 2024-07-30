@@ -13,25 +13,17 @@
 
 
     <title>Shopping Cart</title>
-    <style>
-        body{
-        margin: 0;
-        padding: 0;
-        background-color:  #F4F4F4;
+    {% load static %}
 
-}
-      .container{
-              margin: 60px;
-              margin-bottom: 90px;
-      }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/css/order_history.css' %}">
 </head>
 <body>
-<div class="container ">
-    <h3>Order History</h3>
+<div class="order-history ">
 
+<h4>Order History</h4>
     {% if user %}
+    {% if orders%}
+
     <table class="table">
         <thead>
         <tr>
@@ -57,12 +49,13 @@
 
             <td>{{ order.order_date|date:"F j, Y, g:i a" }}</td> <!-- Display date and time -->
 
-
-            <!-- Add more columns as needed -->
         </tr>
         {% endfor %}
         </tbody>
     </table>
+    {% else %}
+    <h5>No Orders Placed</h5>
+    {% endif %}
     {% else %}
     <p>User is not authenticated.</p>
     {% endif %}

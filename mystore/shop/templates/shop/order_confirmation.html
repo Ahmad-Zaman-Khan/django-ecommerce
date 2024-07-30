@@ -2,18 +2,18 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h1>Order Confirmation</h1>
+    <h3 class="mb-4">Order Confirmation</h3>
 
-    <h2>Product Details</h2>
+    <h5>Product Details</h5>
     <p><strong>Product Name:</strong> {{ product.name }}</p>
     <p><strong>Product Description:</strong> {{ product.description }}</p>
     <p><strong>Price per Unit:</strong> ${{ product.price }}</p>
 
-    <h2>Order Summary</h2>
+    <h5>Order Summary</h5>
     <p><strong>Quantity:</strong> {{ quantity }}</p>
     <p><strong>Total Price:</strong> ${{ total_price }}</p>
 
-    <h2>User Information</h2>
+    <h5>User Information</h5>
     {% if user %}
     <p><strong>Name:</strong> {{ user.name }}</p>
     <p><strong>Email:</strong> {{ user.email }}</p>
