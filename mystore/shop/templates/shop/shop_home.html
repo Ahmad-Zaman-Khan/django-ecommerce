@@ -34,9 +34,6 @@
     {% if products %}
         <!-- Large Screen Carousel -->
         {% include 'shop/carousel.html' with carousel_id="carouselExample" size="large" size_limit=5 subcategory=subcategory products=products loop_counter=forloop.counter %}
-
-        <!-- Small Screen Carousel -->
-        {% include 'shop/carousel.html' with carousel_id="carouselSmall" size="small" size_limit=2 subcategory=subcategory products=products loop_counter=forloop.counter %}
     {% endif %}
 {% endfor %}
 

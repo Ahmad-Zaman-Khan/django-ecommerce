@@ -9,6 +9,7 @@ AUTH_USER_MODEL = 'shop.CustomUser'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-secret-key')
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
+SITE_ID = 10
 # Allowed Hosts (Domain names or IPs from environment variables)
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
