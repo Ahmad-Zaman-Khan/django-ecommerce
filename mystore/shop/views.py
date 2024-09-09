@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.db.models import Q
 from django.http import  Http404, HttpResponseRedirect
@@ -216,14 +217,16 @@ class OrderHistoryView(View):
     template_name = 'shop/order_history.html'
 
     def get(self, request):
-        user = request.user if request.user.is_authenticated else None
-        if user:
+        user = request.user
+
+        if user.is_authenticated:
             orders = Order.objects.filter(user=user)
             for order in orders:
                 # Calculate the total price for each order
                 order.total_price = order.product.price * order.quantity
         else:
-            orders = []
+            return redirect('login')
+
 
         context = {
             'user': user,

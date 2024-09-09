@@ -6,12 +6,9 @@
   <head>
 
       <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{% load static %}
-
-
-<link rel="stylesheet" type="text/css" href="{% static 'shop/css/shop_home.css' %}">
-
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+       <link rel="stylesheet" type="text/css" href="{% static 'shop/css/shop_home.css' %}">
   </head>
   <body>
 
@@ -32,113 +29,20 @@
 
     </section>
 
-
-
+<!-- Carousels for Products -->
 {% for subcategory, products in allProds %}
-{% if products %}
-<div id="carouselExample{{forloop.counter}}" class="carousel slide large">
+    {% if products %}
+        <!-- Large Screen Carousel -->
+        {% include 'shop/carousel.html' with carousel_id="carouselExample" size="large" size_limit=5 subcategory=subcategory products=products loop_counter=forloop.counter %}
 
-  <div class="carousel-inner">
-<div class="title-block">
-    <h2 class="title-block-left pl-2 pb-1" style="font-size:21px;" >  {{ subcategory.name }} </h2>
-<a class="title-block-right" href="{%  url 'subcategory_products' subcategory.name  %}">See more</a>
-</div>
-<div class="carousel-item active">
-    {% for product in products %}
-
-      <div class="card card-pro" style="border: 1px solid #e2e2e2; ">
-<a  href="{% url 'product_detail' slug=product.slug %}" >
-        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}" style="  ">
-        <div class="card-body">
-          <p class="card-text">Some quick example text that...</p>
-
-           <span class="price-tag">${{ product.price }}</span>
-
-        </div>
-              </a>
-
-      </div>
-     {% if forloop.counter|divisibleby:5 %}
-    </div>
-      {% if not forloop.last %}
-      <div class="carousel-item ">
-{% endif %}
-{% endif %}
-    {% endfor %}
-
-  </div>
-
-  <a class="carousel-control-prev" type="button"  data-bs-target="#carouselExample{{forloop.counter}}" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </a>
-  <a class="carousel-control-next" type="button" data-bs-target="#carouselExample{{forloop.counter}}" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </a>
-</div>
-
-</div>
-{% endif %}
+        <!-- Small Screen Carousel -->
+        {% include 'shop/carousel.html' with carousel_id="carouselSmall" size="small" size_limit=2 subcategory=subcategory products=products loop_counter=forloop.counter %}
+    {% endif %}
 {% endfor %}
-
-
-
-
-<!--This is for small screens-->
-{% for subcategory, products in allProds %}
-{% if products %}
-<div id="carouselSmall{{forloop.counter}}" class="carousel slide small">
-
-  <div class="carousel-inner">
-<div class="title-block">
-    <h2 class="title-block-left p-2 ml-4 pb-2" style="font-size:20px;" >  {{ subcategory.name }} </h2>
-<a class="title-block-right" href="{%  url 'subcategory_products' subcategory.name  %}">See more</a>
-</div>
-<div class="carousel-item active">
-    {% for product in products %}
-
-      <div class="card card-pro" style="  ">
-          <a  href="{% url 'product_detail' slug=product.slug %}" >
-        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}" style="height: 62%; ">
-        <div class="card-body">
-          <p class="card-text">Some quick example text..</p>
-          <span class="price-tag">${{ product.price }}</span>
-
-        </div>
-          </a>
-      </div>
-     {% if forloop.counter|divisibleby:2  %}
-    </div>
-{% if not forloop.last %}
-      <div class="carousel-item ">
-{% endif %}
-{% endif %}
-    {% endfor %}
-
-</div>
-
-  <a class="carousel-control-prev" type="button"  data-bs-target="#carouselSmall{{forloop.counter}}" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </a>
-  <a class="carousel-control-next" type="button" data-bs-target="#carouselSmall{{forloop.counter}}" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </a>
-</div>
-</div>
-
-
-{% endif %}
-{% endfor %}
-
-
 
 
 {% endblock %}
 
-
-
   </body>
 </html>
+

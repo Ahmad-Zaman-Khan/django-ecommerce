@@ -1,31 +1,21 @@
 {% extends 'shop/base.html' %}
 
 {% block content %}
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-
-    <title>Shopping Cart</title>
     {% load static %}
-
     <link rel="stylesheet" type="text/css" href="{% static 'shop/css/order_history.css' %}">
+    <title>Order History</title>
 </head>
 <body>
-<div class="order-history ">
+<div class="order-history container py-5">
+    <h4 class="text-center mb-4">Order History</h4>
 
-<h4>Order History</h4>
-    {% if user %}
-    {% if orders%}
-
-    <table class="table">
-        <thead>
+    {% if orders %}
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
         <tr>
             <th>Order ID</th>
             <th>Product</th>
@@ -33,8 +23,7 @@
             <th>Price</th>
             <th>Total Price</th>
             <th>Shipping Address</th>
-            <th>Order Date & Time</th><!-- Add this column -->
-            <!-- Add more columns as needed -->
+            <th>Order Date & Time</th>
         </tr>
         </thead>
         <tbody>
@@ -45,20 +34,23 @@
             <td>{{ order.quantity }}</td>
             <td>${{ order.product.price }}</td>
             <td>${{ order.total_price }}</td>
-            <td>{{ order.shipping_address }}</td>  <!-- Display the shipping address -->
-
-            <td>{{ order.order_date|date:"F j, Y, g:i a" }}</td> <!-- Display date and time -->
-
+            <td>{{ order.shipping_address }}</td>
+            <td>{{ order.order_date|date:"F j, Y, g:i a" }}</td>
         </tr>
         {% endfor %}
         </tbody>
     </table>
     {% else %}
-    <h5>No Orders Placed</h5>
+    <div class="text-center my-5">
+        <i class="fas fa-box-open fa-3x mb-3 text-muted"></i>
+        <h5 class="text-muted">No Orders Placed</h5>
+        <p class="text-muted">It looks like you haven't placed any orders yet.</p>
+        <a href="{% url 'index' %}" class="btn btn-primary mt-3">
+            <i class="fas fa-shopping-cart"></i> Start Shopping
+        </a>
+    </div>
     {% endif %}
-    {% else %}
-    <p>User is not authenticated.</p>
-    {% endif %}
+
 </div>
 {% endblock %}
 </body>

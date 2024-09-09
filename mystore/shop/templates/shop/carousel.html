@@ -1,0 +1,42 @@
+<div id="{{ carousel_id }}{{ loop_counter }}" class="carousel slide {{ size }}">
+  <div class="carousel-inner">
+
+    <div class="title-block">
+      <h2 class="title-block-left p-2 ml-4 pb-2" style="font-size: 20px;">
+        {{ subcategory.name }}
+      </h2>
+      <a class="title-block-right" href="{% url 'subcategory_products' subcategory.name %}">See more</a>
+    </div>
+
+    <div class="carousel-item active">
+      {% for product in products %}
+        <div class="card card-pro">
+          <a href="{% url 'product_detail' slug=product.slug %}">
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+            <div class="card-body">
+              <p class="card-text">Some quick example text..</p>
+              <span class="price-tag">${{ product.price }}</span>
+            </div>
+          </a>
+        </div>
+
+        {% if forloop.counter|divisibleby:size_limit %}
+          </div> <!-- Closing carousel-item -->
+          {% if not forloop.last %}
+            <div class="carousel-item">
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div> <!-- Closing the last active carousel-item -->
+
+  </div> <!-- Closing carousel-inner -->
+
+  <a class="carousel-control-prev" type="button" data-bs-target="#{{ carousel_id }}{{ loop_counter }}" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" type="button" data-bs-target="#{{ carousel_id }}{{ loop_counter }}" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>

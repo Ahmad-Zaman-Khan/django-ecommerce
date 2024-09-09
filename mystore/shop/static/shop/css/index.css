@@ -17,7 +17,6 @@ body {
     border: none;
 }
 
-/* CSS for the search form */
 
 /* CSS for the links */
 .header-links {
@@ -158,6 +157,7 @@ footer {
     background-color: #1b5066;
     color: white;
     bottom: 0;
+    text-decoration: none;
 }
 
 i {
@@ -171,7 +171,9 @@ i {
 .text-color p {
     color: #ddd;
 }
-
+p a{
+text-decoration: none;
+}
 .search-bar1 {
     display: none;
 }

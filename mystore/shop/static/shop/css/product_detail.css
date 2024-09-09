@@ -1,16 +1,64 @@
+/* General styles */
 body {
-    background-color: white;
+    background-color: #f8f9fa; /* Set for the product detail page */
 }
 
+/* Container styling */
 .first-container {
+    margin-top: 30px;
     margin-bottom: 30px;
     padding: 50px;
-    background-color: white;
+    background-color: white; /* Shared between both product detail and carousel */
 }
 
+/* Product Detail Page */
+.product-image {
+    width: 80%; /* Adjust width based on height */
+    max-height: 350px; /* Set height limit */
+    object-fit: cover; /* Prevent image distortion */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto; /* Center image horizontally */
+}
+
+.product-title {
+    font-size: 28px;
+    font-weight: 600;
+    text-decoration: none; /* Remove underline */
+}
+
+.product-description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.price-tag {
+    font-size: 22px;
+    font-weight: 600;
+    color: #28a745; /* Green color for product detail page */
+    text-decoration: none; /* Remove underline */
+}
+
+.btn {
+    width: 100%;
+}
+
+.form-control {
+    width: 50px; /* Adjust this to your desired width */
+    display: inline-block;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.btn-success, .btn-secondary {
+    margin-top: 10px;
+}
+
+/* Carousel */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    padding: 20px 0px 20px 0px;
+    padding: 20px 0px;
     background-color: lightgrey;
 }
 
@@ -19,18 +67,10 @@ body {
     width: 5%;
 }
 
-.product-title {
-    color: #212121;
-    font-size: 22px;
-    font-weight: 400;
-    word-break: break-word;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
 .carousel-inner .carousel-item.active,
 .carousel-inner .carousel-item-next,
 .carousel-inner .carousel-item-prev {
+    /* Carousel transition styles */
 }
 
 .carousel-inner .carousel-item-right.active,
@@ -48,12 +88,7 @@ body {
     transform: translateX(0);
 }
 
-.form-group a {
-    background-color: #006AA9;
-    color: white;
-    margin-right: 10px;
-}
-
+/* Related Products Styling */
 .card-link {
     text-decoration: none;
     display: flex;
@@ -61,23 +96,40 @@ body {
 }
 
 .card-text {
-    font-size: 14px!important;
+    font-size: 14px !important;
     line-height: 1.5;
     color: rgb(15, 17, 17);
     margin-bottom: 3px;
     font-weight: 500;
+    text-decoration: none; /* Ensure no underline */
 }
 
 .card a {
     color: black;
+    text-decoration: none;
 }
 
 .card-img-top:hover {
     opacity: 0.7;
 }
 
-.price-tag {
+/* Carousel price tag (Separate from product detail price tag) */
+.carousel-price-tag {
     font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: 400;
+    color: black;
+    text-decoration: none; /* Remove underline */
+}
+
+/* Remove default number input spinner in Firefox and make it visible in Chrome/Safari */
+input[type=number] {
+     width: 100px;
+    -moz-appearance: textfield; /* Firefox */
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: inner-spin-button; /* Chrome, Safari */
+    opacity: 1; /* Make the arrows visible */
 }

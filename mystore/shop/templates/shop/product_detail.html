@@ -1,76 +1,76 @@
 {% extends "shop/base.html" %}
-{% block title %}About Us - My Website{% endblock %}
+{% block title %}{{ product.title }} - Product Detail{% endblock %}
 {% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     {% load static %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/css/product_detail.css' %}">
+
     <title>{{ product.title }} - Product Detail</title>
-<link rel="stylesheet" type="text/css" href="{% static 'shop/css/product_detail.css' %}">
 </head>
 <body>
-<div class="container-fluid pt-5 mt-4 first-container">
-    <div class="row" >
-        <div class="col-md-4">
+<div class="container pt-5 mt-4 first-container">
+    <div class="row">
+        <div class="col-md-5">
             <!-- Product image -->
-            <img src="{{ product.image.url }}" alt="Product Image" class="  product-image" style="height:350px">
+            <img src="{{ product.image.url }}" alt="Product Image" class="product-image">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
             <!-- Product details -->
-            <h2 class="product-title">Product - {{ product.name }}</h2>
+            <h2 class="product-title">{{ product.name }} a product from consectetur dolor alpha brand</h2>
             <p class="text-muted">Category: {{ product.category }}</p>
-          <p>{{ product.description }}and Product description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<!--            <p class="text-muted">Availability: In Stock</p>-->
-            <span class="price-tag ">Rs: {{ product.price }}</span>
+            <p class="product-description">{{ product.description }} Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span class="price-tag">Rs: {{ product.price }}</span>
 
-         <form action="{% url 'order_confirmation' product.id %}" method="post">
+            <form action="{% url 'order_confirmation' product.id %}" method="post">
                 {% csrf_token %}
-                <div class="form-group mb-3 mt-2">
+                <div class="form-group mb-3 mt-3">
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" name="quantity" class="form-control" min="1" value="1">
-                     <a href="{% url 'add-to-cart' product.id %}" class="btn mt-4  rounded-0">Add to Cart</a>
-                <button type="submit" class="btn btn-success mt-4 rounded-0 ">Buy Now</button>
                 </div>
-
+               <div>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'add-to-cart' product.id %}" class="btn btn-secondary rounded-0">Add to Cart</a>
+                        <button type="submit" class="btn btn-success rounded-0">Buy Now</button>
+                    {% else %}
+                        <a href="{% url 'login' %}?next={% url 'add-to-cart' product.id %}" class="btn btn-secondary rounded-0">Add to Cart</a>
+                        <button type="button" class="btn btn-success rounded-0" onclick="window.location.href='{% url 'login' %}?next={% url 'order_confirmation' product.id %}'">Buy Now</button>
+                    {% endif %}
+                </div>
             </form>
-
         </div>
     </div>
 </div>
 
 
 
-<div id="related-products-carousel" class="carousel slide pt-4 pb-5 " data-ride="carousel" data-interval="false">
-     <div class="text-center">
-            <h3 class="mt-0 mb-5">Related Products</h3>
-        </div>
-    <div class="carousel-inner ">
+<div id="related-products-carousel" class="carousel slide pt-2 pb-5" data-ride="carousel" data-interval="false">
+    <div class="text-center">
+        <h3 class="mt-0 mb-5">Related Products</h3>
+    </div>
+    <div class="carousel-inner">
         {% for related_product in related_products %}
             {% if forloop.first %}
             <div class="carousel-item active">
-                <div class="row  " style="margin-left:45px;">
+                <div class="row" style="margin-left: 45px;">
             {% endif %}
-            <div class="col-md-3  " style="margin-right:-45px;">
-                <div class="card  " style="width: 16rem;">
-                     <a  href="{% url 'product_detail' slug=product.slug %}" >
-                    <img src="{{ related_product.image.url }}" class="card-img-top" alt="Related Product Image" style="height: 240px; ">
-                    <div class="card-body">
-
-                        <p class="card-text ">Some quick example text that...</p>
-                        <p class="price-tag ">Rs: {{ related_product.price }}</p>
-
-                    </div>
-                     </a>
+            <div class="col-md-3" style="margin-right: -45px;">
+                <div class="card" style="width: 16rem;">
+                    <a href="{% url 'product_detail' slug=related_product.slug %}">
+                        <img src="{{ related_product.image.url }}" class="card-img-top" alt="Related Product Image" style="height: 240px;">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text that...</p>
+                            <p class="carousel-price-tag">Rs: {{ related_product.price }}</p> <!-- Updated class -->
+                        </div>
+                    </a>
                 </div>
             </div>
             {% if forloop.counter|divisibleby:"4" %}
-                </div></div><div class="carousel-item "><div class="row ml-5 pl-4">
-
+                </div></div><div class="carousel-item"><div class="row" style="margin-left: 45px;">
             {% endif %}
-
         {% endfor %}
-    </div>
     </div>
     </div>
     <a class="carousel-control-prev" href="#related-products-carousel" role="button" data-slide="prev">
@@ -82,10 +82,10 @@
         <span class="visually-hidden">Next</span>
     </a>
 </div>
-
-
+</div>
 
 {% endblock %}
+
 
 </body>
 </html>
